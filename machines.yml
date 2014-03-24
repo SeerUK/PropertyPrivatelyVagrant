@@ -1,0 +1,18 @@
+machines:
+    - box:
+        boxname: "pp_dbsrv"
+        hostname: "ppdbsrv"
+        ip: "192.168.50.10"
+    - box:
+        boxname: "pp_apisrv"
+        hostname: "ppapisrv"
+        ip: "192.168.50.20"
+        forwarded_ports:
+            - { guest: 80, host: 8000 }
+        synced_folders:
+            - { guest: "/opt/PropertyPrivatelyAPI", host: "../PropertyPrivatelyAPI" }
+    - box:
+        boxname: "pp_websrv"
+        hostname: "ppwebsrv"
+        ip: "192.168.50.30"
+    
