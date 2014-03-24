@@ -21,8 +21,6 @@ Vagrant.configure("2") do |config|
 
       if machine.include? "forwarded_ports"
         machine["forwarded_ports"].each do |forward|
-          p forward["guest"]
-
           box.vm.network "forwarded_port", guest: forward["guest"], host: forward["host"]
         end
       end
