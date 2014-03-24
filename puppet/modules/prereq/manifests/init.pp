@@ -13,12 +13,12 @@ class prereq {
     require => Exec['apt-get update']
   }
 
-  class { 'apt': }
+  class { apt: }
 
   apt::ppa { 'ppa:chris-lea/node.js': }
 
-  class { 'nodejs': 
-    require => apt::ppa['ppa:chris-la/node.ks']
+  class { 'nodejs':
+    require => Apt::Ppa['ppa:chris-lea/node.js']
   }
 
   package {['grunt-cli', 'bower']:

@@ -9,8 +9,8 @@ machines = config["machines"]
 
 # Configure machines
 Vagrant.configure("2") do |config|
-  config.vm.box = "saucy64"
-  config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/saucy/current/saucy-server-cloudimg-amd64-vagrant-disk1.box"
+  config.vm.box = "saucy64-puppet"
+  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-1310-x64-virtualbox-puppet.box"
 
   machines.each do |machine|
     machine = machine["box"]

@@ -4,8 +4,10 @@ PUPPET_DIR=/etc/puppet/
 VAGRANT_DIR=/vagrant/
 LIBRARIAN_DIR=/vagrant/librarian/
 
+sed -i 's/us./gb./g' /etc/apt/sources.list
+
 apt-get update
-apt-get install -y augeas-tools build-essential libaugeas-dev pkg-config memcached git-core ruby1.9.1-dev
+apt-get install -y git-core language-pack-en augeas-tools build-essential libaugeas-dev pkg-config ruby ruby-dev
 
 # Setup Augeas
 
@@ -21,7 +23,7 @@ if [ "$(gem search -i librarian-puppet)" = "false" ]; then
 fi
 
 cd $LIBRARIAN_DIR
-librarian-puppet install
+librarian-puppet install --verbose
 
 
 # Setup Hiera
@@ -36,4 +38,4 @@ if [ ! -d "$PUPPET_DIR" ]; then
     mkdir -p $PUPPET_DIR
 fi
 
-cp /vagrant/hiera.yaml $PUPPET_DIR
+# cp /vagrant/hiera.yaml $PUPPET_DIR
