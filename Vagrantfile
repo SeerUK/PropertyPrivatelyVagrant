@@ -30,6 +30,17 @@ Vagrant.configure("2") do |config|
           box.vm.synced_folder folder["host"], folder["guest"], nfs: true
         end
       end
+
+      box.vm.provision :shell, :path => "pre.sh"
+
+      if machine.include? "puppet_manifest"
+        box.vm.provision :puppet do |puppet|
+          puppet.manifests_path = "puppet/manifests"
+          puppet.manifest_file  = machine["puppet_manifest"]
+          puppet.module_path    = ["librarian/modules", "puppet/modules"]
+          puppet.options        = "--verbose"
+        end
+      end
     end
   end
 end

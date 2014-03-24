@@ -3,10 +3,12 @@ machines:
         boxname: "pp_dbsrv"
         hostname: "ppdbsrv"
         ip: "192.168.50.10"
+        puppet_manifest: "pp_dbsrv.pp"
     - box:
         boxname: "pp_apisrv"
         hostname: "ppapisrv"
         ip: "192.168.50.20"
+        puppet_manifest: "pp_apisrv.pp"
         forwarded_ports:
             - { guest: 80, host: 8000 }
         synced_folders:
@@ -15,5 +17,6 @@ machines:
         boxname: "pp_websrv"
         hostname: "ppwebsrv"
         ip: "192.168.50.30"
+        puppet_manifest: "pp_websrv.pp"
         forwarded_ports:
             - { guest: 80, host: 8080 } 
