@@ -12,11 +12,11 @@ machines:
         forwarded_ports:
             - { guest: 80, host: 8000 }
         synced_folders:
-            - { guest: "/opt/PropertyPrivatelyAPI", host: "../PropertyPrivatelyAPI" }
+            - { guest: "/opt/www", host: "../PropertyPrivatelyAPI" }
     - box:
         boxname: "pp_websrv"
         hostname: "ppwebsrv"
         ip: "192.168.50.30"
         puppet_manifest: "pp_websrv.pp"
         forwarded_ports:
-            - { guest: 80, host: 8080 } 
+            - { guest: 80, host: 8080 }
