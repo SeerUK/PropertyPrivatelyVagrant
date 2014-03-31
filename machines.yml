@@ -20,3 +20,5 @@ machines:
         puppet_manifest: "pp_websrv.pp"
         forwarded_ports:
             - { guest: 80, host: 8080 }
+        synced_folders:
+            - { guest: "/opt/www", host: "../PropertyPrivatelyWeb" }
