@@ -14,7 +14,10 @@ class apache2 {
     mpm_module    => "prefork"
   }
 
+  apache::mod { "access_compat": }
   apache::mod { "rewrite": }
+
+  class { "apache::mod::php": }
 
   apache::vhost { "pp.dev":
     port          => "80",

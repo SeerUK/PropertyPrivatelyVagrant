@@ -17,6 +17,7 @@ class php5 {
         'cli',
         'gd',
         'intl',
+        'json',
         'memcache',
         'memcached',
         'mysql',
@@ -32,13 +33,15 @@ class php5 {
         notify        => Service ['apache2'],
     }
 
-    package { 'libapache2-mod-php5':
+    augeas { 'php_cli_ini':
+        context => '/files/etc/php5/cli/php.ini',
+        changes => [
+            'set Date/date.timezone Europe/London',
+        ],
         require => Package['php'],
-        ensure  => present,
-        notify  => Service ['apache2'],
     }
 
-    augeas { 'set-php-ini-values':
+    augeas { 'php_apache_ini':
         context => '/files/etc/php5/apache2/php.ini',
         changes => [
             "set PHP/error_reporting 'E_ALL | E_STRICT'",
