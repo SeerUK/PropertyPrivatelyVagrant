@@ -12,11 +12,11 @@ machines:
         hostname: "ppmemcachesrv"
         ip: "192.168.50.20"
         puppet_manifest: "pp_memcachesrv.pp"
-    - box:
-        boxname: "pp_memcachesrv2"
-        hostname: "ppmemcachesrv2"
-        ip: "192.168.50.21"
-        puppet_manifest: "pp_memcachesrv.pp"
+    # - box:
+    #     boxname: "pp_memcachesrv2"
+    #     hostname: "ppmemcachesrv2"
+    #     ip: "192.168.50.21"
+    #     puppet_manifest: "pp_memcachesrv.pp"
 
     # API Servers
     - box:
@@ -30,21 +30,21 @@ machines:
             - { guest: "/opt/www", host: "../PropertyPrivatelyAPI" }
 
     # Web Servers
-    - box:
-        boxname: "pp_websrv"
-        hostname: "ppwebsrv"
-        ip: "192.168.50.40"
-        puppet_manifest: "pp_websrv.pp"
-        forwarded_ports:
-            - { guest: 80, host: 8001 }
-        synced_folders:
-            - { guest: "/opt/www", host: "../PropertyPrivatelyWeb" }
-    - box:
-        boxname: "pp_websrv2"
-        hostname: "ppwebsrv2"
-        ip: "192.168.50.41"
-        puppet_manifest: "pp_websrv.pp"
-        forwarded_ports:
-            - { guest: 80, host: 8002 }
-        synced_folders:
-            - { guest: "/opt/www", host: "../PropertyPrivatelyWeb" }
+    # - box:
+    #     boxname: "pp_websrv"
+    #     hostname: "ppwebsrv"
+    #     ip: "192.168.50.40"
+    #     puppet_manifest: "pp_websrv.pp"
+    #     forwarded_ports:
+    #         - { guest: 80, host: 8001 }
+    #     synced_folders:
+    #         - { guest: "/opt/www", host: "../PropertyPrivatelyWeb" }
+    # - box:
+    #     boxname: "pp_websrv2"
+    #     hostname: "ppwebsrv2"
+    #     ip: "192.168.50.41"
+    #     puppet_manifest: "pp_websrv.pp"
+    #     forwarded_ports:
+    #         - { guest: 80, host: 8002 }
+    #     synced_folders:
+    #         - { guest: "/opt/www", host: "../PropertyPrivatelyWeb" }
