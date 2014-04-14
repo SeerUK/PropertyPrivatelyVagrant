@@ -20,7 +20,7 @@ class mysql5 {
 
     class { "::mysql::client": }
 
-    mysql_user { "root@192.168.50.1":
+    mysql_user { "root@192.168.50.%":
         ensure                   => "present",
         password_hash            => "*8D07AC09DA75E8AA5288BBE75315580B18B78AC3",
         max_connections_per_hour => "0",
@@ -29,11 +29,11 @@ class mysql5 {
         max_user_connections     => "0",
     }
 
-    mysql_grant { "root@192.168.50.1/*.*":
+    mysql_grant { "root@192.168.50.%/*.*":
         ensure     => present,
         options    => ["GRANT"],
         privileges => ["ALL"],
         table      => "*.*",
-        user       => "root@192.168.50.1",
+        user       => "root@192.168.50.%",
     }
 }
