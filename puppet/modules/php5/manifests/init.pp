@@ -15,6 +15,7 @@ class php5 {
 
     php::module {[
         'cli',
+        'curl',
         'gd',
         'intl',
         'json',
